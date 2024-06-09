@@ -1,0 +1,67 @@
+<!-- <div class="flex jc-center ai-center fd-column">
+    <div>
+        Welcome To Lobby
+    </div>
+    <div *ngIf="isLoading">
+        <span>Loading players...</span>
+    </div>
+    <div *ngIf="!isLoading && players.length > 0">
+        <span>Player Name</span>
+        <span>Player Ready</span>
+        <div class="flex fd-column">
+            <div class="flex fd-row" *ngFor = "let item of players">
+                <span class="mr-8">{{item.name}}</span>
+                <span>
+                    <button mat-raised-button color="primary">Ready</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button mat-raised-button color="primary" (click)="start()">Start Game</button>
+    </div>
+</div> -->
+<div class="flex jc-center ai-center fd-column" *ngIf="role == 'player';else admin ">
+    <div>
+        Welcome To Lobby
+    </div>
+    <div>
+        Please wait in the lobby and be ready, your match will start after all players are ready
+    </div>
+    <div>
+        <button mat-raised-button color="primary" (click)="start()" *ngIf="!ready">Ready</button>
+        <button mat-raised-button color="primary" (click)="start()"  *ngIf="ready">Not Ready</button>
+    </div>
+</div>
+<ng-template #admin>
+    <div class="flex jc-center ai-center fd-column">
+        <div class="flex jc-center ai-center fd-row">
+            <div>
+                Player Name
+            </div>
+            <div>
+                Player Id
+            </div>
+            <div>
+                Player Ready
+            </div>
+        </div>
+        <div class="flex jc-center ai-center fd-row" *ngFor="let item of players">
+            <div>
+                {{item.name}}
+            </div>
+            <div>
+                {{item.id}}
+            </div>
+            <div *ngIf="item.ready">
+                Ready
+            </div>
+            <div *ngIf="!item.ready">
+                Not Ready
+            </div>
+        </div>
+        <div>
+            <button mat-flat-button [disabled]="allPlayersReady()">Start</button>
+        </div>
+    </div>
+</ng-template>

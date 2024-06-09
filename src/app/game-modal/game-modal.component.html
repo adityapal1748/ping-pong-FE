@@ -1,0 +1,19 @@
+<div class="flex fd-column" *ngIf="false">
+    <div>Pick Number from 1 to 10</div>
+    <div class="flex fd-column">
+        <mat-form-field class="example-full-width ">
+            <input matInput #postalCode maxlength="2" type="number">
+            <!-- <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint> -->
+        </mat-form-field>
+        <button mat-raised-button color="primary">Save</button>
+    </div>
+
+</div>
+<div class="flex fd-column">
+    <div>Create a Array of 8 Numbers</div>
+    <div class="flex fd-column array">
+        <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)"  [config]="config"></ng-otp-input>
+        <button mat-raised-button color="primary">Save</button>
+    </div>
+
+</div>
