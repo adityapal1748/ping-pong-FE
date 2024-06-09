@@ -46,7 +46,7 @@ export class RefreeComponent implements OnInit {
     })
   }
   allPlayersReady(){
-    if(this.players.length === 2 && this.players.some(obj =>obj.ready)){
+    if(this.players.length === 8 && this.players.some(obj =>obj.ready)){
       return false
     }else{
       return true
